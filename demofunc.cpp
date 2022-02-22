@@ -1,20 +1,17 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
-#include <vector>
-#include <algorithm>
 using namespace std;
 int main(){
-    vector <double> arr;
-    double temp;
+    const int MAX_N = 1000;
     int n; cin>>n;
+    double vectorA[MAX_N]; double vectorB[MAX_N]; double product = 0;
     for (int i=0; i<n; i++){
-        cin>>temp;
-        arr.push_back(temp);
+        cin>>vectorA[i];
     }
-    reverse(arr.begin(), arr.end());
     for (int i=0; i<n; i++){
-        cout<<fixed<<setprecision(2)<<arr[i]<<" ";
+        cin>>vectorB[i];
+        product+=vectorA[i]*vectorB[i];
     }
+    cout<<fixed<<setprecision(2)<<product;
     return 0;
 }
