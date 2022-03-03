@@ -98,9 +98,9 @@ const string FIGURE[] = {
 const int MAX_BAD_GUESSES=7;
 const int WORD_COUNT=sizeof(WORD_LIST)/sizeof(string);
 string chooseWord();
-void renderGame (string guessedWord,int badGuessCount, player pl);
+void renderGame (const string &guessedWord,const int &badGuessCount,const player &pl);
 void update(string &guessedWord, const string &secretWord, char guess);
-bool contains (string word, char ch);
+bool contains (const string &word,const char &ch);
 void gameMain(player &pl);
 void createPlayer(vector <player> &LIST_PLAYERS);
 void printChart(const vector <player> &LIST_PLAYERS);
@@ -142,7 +142,7 @@ string chooseWord (){
     int randomIndex= rand()%WORD_COUNT;
     return WORD_LIST[randomIndex];
 }
-void renderGame (string guessedWord,int badGuessCount, player pl){
+void renderGame (const string &guessedWord, const int &badGuessCount, const player &pl){
     cout<<FIGURE[badGuessCount]<<endl;
     cout<<"Live score : "<<pl.score<<endl;
     cout<<guessedWord<<endl;
@@ -153,7 +153,7 @@ void update(string &guessedWord,const string &secretWord, char guess){
         if (guess==secretWord[i]) guessedWord[i]=guess;
     }
 }
-bool contains (string word, char ch){
+bool contains (const string &word, const char &ch){
     for (int i=0; i<word.size(); i++){
         if (word[i]==ch) return true;
     }
