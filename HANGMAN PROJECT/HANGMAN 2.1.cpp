@@ -25,7 +25,7 @@ void update(string &guessedWord, const string &secretWord, char guess);
 bool contains (const string &word,const char &ch);
 void gameMain(player &pl);
 void createPlayer(vector <player> &LIST_PLAYERS);
-void printChart(const vector <player> &LIST_PLAYERS);
+void printChart(vector <player> &LIST_PLAYERS);
 void preProcess(vector <player> &LIST_PLAYERS);
 void getPlayerInfoFromFile(fstream &playerInfo,vector <player> &LIST_PLAYERS);
 void sort(vector <player> &LIST_PLAYERS);
@@ -151,9 +151,10 @@ void createPlayer(vector <player> &LIST_PLAYERS){
     pl.score=0;
     LIST_PLAYERS.push_back(pl);
 }
-void printChart(const vector <player> &LIST_PLAYERS){
+void printChart(vector <player> &LIST_PLAYERS){
     if (LIST_PLAYERS.size()==0) cout<<"Chart is empty!"<<endl; 
         else{
+            sort(LIST_PLAYERS);
             cout<<string(40,'-')<<endl;
             for (int i=1; i<=LIST_PLAYERS.size(); i++){
                 cout<<"|"<<left<<setw(2)<<i<<". "<<left<<setw(20)<<LIST_PLAYERS[i-1].name<<"| "<<"score: "<<LIST_PLAYERS[i-1].score<<right<<setw(5)<<" |"<<endl;
