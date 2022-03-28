@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
+#include <string>
 using namespace std;
 int GenerateRandomNumber(){
     return rand() %100 +1;
